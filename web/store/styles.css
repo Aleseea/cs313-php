@@ -1,0 +1,16 @@
+html{
+    background-color: lightgray;
+}
+h2{
+    display: inline-block;
+    vertical-align: text-bottom;
+}
+.inline{
+    
+}
+.totalitem{
+    
+}
+#display_address{
+    text-align: left;
+}
