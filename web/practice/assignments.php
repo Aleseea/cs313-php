@@ -12,9 +12,7 @@
             <p>Page under Construction!</p>
             
             <ol>
-                <li><a href="#">Week 1</a></li>
-                <li><a href="#">Week 2</a></li>
-                <li><a href="#">Week 3</a></li>
+                <li><a href="https://fathomless-meadow-19927.herokuapp.com/store/browse.php">Week 3</a></li>
                 <li><a href="#">Week 4</a></li>
                 <li><a href="#">Week 5</a></li>
                 <li><a href="#">Week 6</a></li>
