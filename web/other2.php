@@ -2,7 +2,7 @@
 # This function reads your DATABASE_URL config var and returns a connection
 # string suitable for pg_connect. Put this in your app.
 function pg_connection_string_from_database_url() {
-  extract(parse_url($_ENV["DATABASE_URL"]));
+  extract(parse_url($_ENV["HEROKU_POSTGRESQL_BLACK_URL"]));
   return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
 }
 # Here we establish the connection. Yes, that's all.
@@ -18,7 +18,7 @@ if (!pg_num_rows($result)) {
 }
 print "\n";
 
-$stmt = $db->prepare('SELECT id, title, year, rating FROM movie');
+$stmt = $db->prepare('SELECT contact_id, title, year, rating FROM movie');
 $stmt->execute();
 $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
