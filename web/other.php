@@ -1,6 +1,6 @@
 <?php
 
-$dbUrl = getenv('DATABASE_URL');
+$dbUrl = getenv('black');
 
 $dbopts = parse_url($dbUrl);
 
