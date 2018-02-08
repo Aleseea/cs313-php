@@ -8,7 +8,7 @@ function pg_connection_string_from_database_url() {
 # Here we establish the connection. Yes, that's all.
 $pg_conn = pg_connect(pg_connection_string_from_database_url());
 # Now let's use the connection for something silly just to prove it works:
-$result = pg_query($pg_conn, "SELECT relname FROM pg_stat_user_tables WHERE schemaname='public'");
+$result = pg_query($pg_conn, "SELECT * FROM contact");
 print "<pre>\n";
 if (!pg_num_rows($result)) {
   print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
@@ -17,6 +17,11 @@ if (!pg_num_rows($result)) {
   while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
 }
 print "\n";
+
+$stmt = $db->prepare('SELECT id, title, year, rating FROM movie');
+$stmt->execute();
+$movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 
@@ -24,6 +29,18 @@ print "\n";
 
 <html>
 <body>
+    
+    <ul>
+    
+    foreach ($movies as $movie)
+{
+	$id = $movie["id"];
+	$title = $movie["title"];
+	$year = $movie["year"];
+	echo "<li><p><a href='movieDetails.php?movieId=$id'>$title</a> ($year)</p></li>";
+}
+?>
+    </ul>
 
 <!--?php
 
