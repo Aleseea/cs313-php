@@ -16,7 +16,7 @@ if (!pg_num_rows($result)) {
   print "Tables in your database:\n";
   while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
 }
-print "\n";
+print "\d";
 
 $stmt = $db->prepare('SELECT contact_id, email_address, phone_number, street_address FROM contact');
 $stmt->execute();
