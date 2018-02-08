@@ -18,9 +18,9 @@ if (!pg_num_rows($result)) {
 }
 print "\n";
 
-$stmt = $db->prepare('SELECT contact_id, title, year, rating FROM movie');
+$stmt = $db->prepare('SELECT contact_id, email_address, phone_number, street_address FROM contact');
 $stmt->execute();
-$movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$contact = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -32,12 +32,13 @@ $movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
     <ul>
     
-    foreach ($movies as $movie)
+    foreach ($contacts as $contact)
 {
-	$id = $movie["id"];
-	$title = $movie["title"];
-	$year = $movie["year"];
-	echo "<li><p><a href='movieDetails.php?movieId=$id'>$title</a> ($year)</p></li>";
+	$id = $contact["contact_id"];
+	$email = $contact["email_address"];
+	$phone = $contact["phone_number"];
+    $address = $contact["street_address"];
+	echo "<li><p>$id($email)</p></li>";
 }
 ?>
     </ul>
