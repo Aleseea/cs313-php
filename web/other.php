@@ -16,7 +16,7 @@ $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPass
 foreach ($db->query('SELECT * FROM contact') as $row)
 {
     echo 'Contact ID: ' . $row['contact_id'];
-    echo ' User ID: ' . $row['user_id'];
-    echo '<br/>';
+    echo ' Member ID: ' . $row['member_id'];
+    echo ' Email Address' . $row['email_address'];
 }
 ?>
