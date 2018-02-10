@@ -1,6 +1,6 @@
 <?php
 
-$dbUrl = getenv('DATABASE_URL');
+$dbUrl = getenv('HEROKU_POSTGRESQL_BLACK_URL');
 
 $dbopts = parse_url($dbUrl);
 
