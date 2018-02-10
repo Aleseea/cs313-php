@@ -11,4 +11,12 @@ $dbPassword = $dbopts["pass"];
 $dbName = ltrim($dbopts["path"],'/');
 
 $db = new PDO("pgsql:host=$dbHost;port=$dbPort;dbname=$dbName", $dbUser, $dbPassword);
+
+
+foreach ($db->query('SELECT * FROM contact') as $row)
+{
+    echo 'Contact ID: ' . $row['contact_id'];
+    echo ' User ID: ' . $row['user_id'];
+    echo '<br/>';
+}
 ?>
