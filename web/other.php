@@ -17,6 +17,6 @@ foreach ($db->query('SELECT * FROM contact') as $row)
 {
     echo 'Contact ID: ' . $row['contact_id'];
     echo ' Member ID: ' . $row['member_id'];
-    echo ' Email Address' . $row['email_address'];
+    echo ' Email Address: ' . $row['email_address'];
 }
 ?>
