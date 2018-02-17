@@ -1,15 +1,8 @@
 <!--php for local host-->
 <?php
-    try{
-          $user = 'postgres';
-          $password = '19Faye96';
-          $db = new PDO('pgsql:host=localhost;dbname=postgres', $user, $password);
-            $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-    }
-    catch (PDOException $ex){
-        echo 'Error!: ' . $ex->getMessage();
-        die();
-    }
+    require("dbConnect.php");
+
+$db = get_db();
 ?>
 
 
