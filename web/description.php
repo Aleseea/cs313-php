@@ -1,5 +1,5 @@
 <!--php for local host-->
-<!--?php
+<?php
     try{
           $user = 'postgres';
           $password = '19Faye96';
@@ -10,11 +10,11 @@
         echo 'Error!: ' . $ex->getMessage();
         die();
     }
-?-->
+?>
 
 
 <!--php for heroku-->
-<?php
+<!--?php
     $dbUrl = getenv('HEROKU_POSTGRESQL_BLACK_URL');
 
 $dbopts = parse_url($dbUrl);
@@ -34,7 +34,7 @@ foreach ($db->query('SELECT * FROM contact') as $row)
     echo ' Member ID: ' . $row['member_id'];
     echo ' Email Address: ' . $row['email_address'];
 }
-?>
+?-->
 
 <!--Start Session-->
 <?php

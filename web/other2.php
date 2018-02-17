@@ -1,56 +1,14 @@
-<?php
-# This function reads your DATABASE_URL config var and returns a connection
-# string suitable for pg_connect. Put this in your app.
-function pg_connection_string_from_database_url() {
-  extract(parse_url($_ENV["HEROKU_POSTGRESQL_BLACK_URL"]));
-  return "user=$user password=$pass host=$host dbname=" . substr($path, 1); # <- you may want to add sslmode=require there too
-}
-# Here we establish the connection. Yes, that's all.
-$pg_conn = pg_connect(pg_connection_string_from_database_url());
-# Now let's use the connection for something silly just to prove it works:
-$result = pg_query($pg_conn, "SELECT * FROM contact");
-print "<pre>\n";
-if (!pg_num_rows($result)) {
-  print("Your connection is working, but your database is empty.\nFret not. This is expected for new apps.\n");
-} else {
-  print "Tables in your database:\n";
-  while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
-}
-print "\n";
-
-$stmt = $db->prepare('SELECT contact_id, email_address, phone_number, street_address FROM contact');
-$stmt->execute();
-$contact = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-?>
-
-
-
-
 <html>
 <body>
-    
-    <ul>
-    
-    foreach ($contacts as $contact)
-{
-	$id = $contact["contact_id"];
-	$email = $contact["email_address"];
-	$phone = $contact["phone_number"];
-    $address = $contact["street_address"];
-	echo "<li><p>$id($email)</p></li>";
-}
-?>
-    </ul>
 
-<!--?php
+<?php
 
 // default Heroku Postgres configuration URL
 $dbUrl = getenv('DATABASE_URL');
 
 if (empty($dbUrl)) {
  // example localhost configuration URL with postgres username and a database called cs313db
- $dbUrl = "postgres://postgres:notright@localhost:5432/postgres";
+ $dbUrl = "postgres://postgres:notset@localhost:5432/postgres";
 }
 
 $dbopts = parse_url($dbUrl);
@@ -86,7 +44,7 @@ foreach ($db->query('SELECT now()') as $row)
 }
     
     
-?-->
+?>
 
 </body>
 </html>

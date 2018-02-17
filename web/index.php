@@ -1,5 +1,5 @@
 <!--php for local host-->
-<!--?php
+<?php
     try{
           $user = 'postgres';
           $password = '19Faye96';
@@ -10,11 +10,11 @@
         echo 'Error!: ' . $ex->getMessage();
         die();
     }
-?-->
+?>
 
 
 <!--php for heroku-->
-<?php
+<!--?php
     $dbUrl = getenv('HEROKU_POSTGRESQL_BLACK_URL');
 
 $dbopts = parse_url($dbUrl);
@@ -34,7 +34,7 @@ foreach ($db->query('SELECT * FROM contact') as $row)
     echo ' Member ID: ' . $row['member_id'];
     echo ' Email Address: ' . $row['email_address'];
 }
-?>
+?-->
 
 <!--Start Session-->
 <?php
@@ -81,7 +81,7 @@ if (!isset($_SESSION["cart"])) {
         </header>
         
         <main>
-            <a href="products.php?type=toys">
+            <a href="products.php?type=Toy">
                 <figure>
                     <img src="img/rabbits.jpg">
                     <figcaption>
@@ -89,7 +89,7 @@ if (!isset($_SESSION["cart"])) {
                     </figcaption>
                 </figure>
             </a>
-            <a href="products.php?type=blanket">
+            <a href="products.php?type=Blanket">
                 <figure>
                     <img src="img/blue_brown_white_blanket.jpg">
                     <figcaption>
@@ -97,7 +97,7 @@ if (!isset($_SESSION["cart"])) {
                     </figcaption>
                 </figure>
             </a>
-            <a href="products.php?type=decor">
+            <a href="products.php?type=Home Decor">
                 <figure>
                     <img src="img/pillows.jpg">
                     <figcaption>
@@ -113,7 +113,7 @@ if (!isset($_SESSION["cart"])) {
                     </figcaption>
                 </figure>
             </a>        
-            <a href="products.php?type=other">
+            <a href="products.php?type=Other">
                 <figure>
                     <img src="img/flowers.jpg">
                     <figcaption>
