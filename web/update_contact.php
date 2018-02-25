@@ -14,15 +14,15 @@ $city = htmlspecialchars($_POST['city']);
 $state = htmlspecialchars($_POST['state']);
 $zip = htmlspecialchars($_POST['zip_code']);
 
- //var_dump($ID);
- //var_dump($email);
- //var_dump($phone);
- //var_dump($address);
- //var_dump($city);
- //var_dump($state);
- //var_dump($zip);
+ var_dump($ID);
+ var_dump($email);
+ var_dump($phone);
+ var_dump($address);
+ var_dump($city);
+ var_dump($state);
+ var_dump($zip);
 
-$query = "INSERT INTO contact(member_id, email_address, phone_number, street_address, city, state, zip_code) VALUES (:email, :phone, :address, :city, :state, :zip)";
+$query = "UPDATE contact(member_id, email_address, phone_number, street_address, city, state, zip_code) VALUES (:email, :phone, :address, :city, :state, :zip)";
 
 $stmt = $db->prepare($query);
 // Bind any parameters

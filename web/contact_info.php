@@ -2,6 +2,24 @@
     session_start();
     require("dbConnect.php");
     $db = get_db();
+
+if (isset($_SESSION['username']))
+{
+	$username = $_SESSION['username'];
+    
+    foreach ($db->query("SELECT member_id FROM member WHERE username = '$username';") as $row){
+                                     
+                    $member_id = $row['member_id'];
+        //echo $member_id;
+                    
+                }
+    
+}
+else
+{
+	header("Location: sign_in.php");
+	die(); // we always include a die after redirects.
+}
     
 ?>
 
@@ -18,7 +36,7 @@
             <div id="contact_info">
                 <h2>Contact/Shipping Info</h2>
                 <form method="post" action="update_contact.php">
-                    <input type="hidden" name="member_id" value="<?php $_POST['member_id'] ?>">
+                    <input type="hidden" name="member_id" value="<?php echo $member_id; ?>">
                     Email Address: <input type="email" name="email_address"/><br>
                     Phone Number: <input type="number" name="phone_number"/><br>
                     Street Address: <input type="text" name="street_address"><br>

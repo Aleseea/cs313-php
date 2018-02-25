@@ -6,13 +6,13 @@ echo'
             <nav>
                 <ul>
                     <li>
-                        <a href="index.php">Home</a>
-                    </li>
-                    <li>
-                        <a href="sign_in.php">Sign In</a>
+                        <a href="index.php">Browse</a>
                     </li>
                     <li>
                         <a href="cart.php">Cart</a>
+                    </li>
+                    <li>
+                        <a href="contact_info.php">Contact Info</a>
                     </li>
                 </ul>
             </nav>
