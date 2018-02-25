@@ -13,23 +13,7 @@
         <link rel="stylesheet" href="hooked.css"/>
     </head>
     <body>
-        <header>
-            <img scr="">
-            <h1>Best Hook Forward</h1>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="index.php">Home</a>
-                    </li>
-                    <li>
-                        <a href="sign_in.php">Sign In</a>
-                    </li>
-                    <li>
-                        <a href="cart.php">Cart</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+        <?php require("header.php");?>
         <main>
             <div id="contact_info">
                 <h2>Contact/Shipping Info</h2>
@@ -45,28 +29,6 @@
                 </form>
             </div>
         </main>
-        <footer>
-            <div id="footer_nav">
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="index.php">Home</a>
-                        </li>
-                        <li>
-                            <a href="sign_in.php">Sign In</a>
-                        </li>
-                        <li>
-                            <a href="cart.php">Cart</a>
-                        </li>
-                    </ul>
-                </nav>
-                <nav id="social">
-                    <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Pinterest</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </footer>
+        <?php require("footer.php");?>
     </body>
 </html>

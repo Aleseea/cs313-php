@@ -14,9 +14,6 @@ if (!isset($_SESSION["cart"])) {
 ?>
 
 <!--OTHER PHP-->
-<?php
-    
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -28,23 +25,7 @@ if (!isset($_SESSION["cart"])) {
     
     <body>
         
-        <header>
-            <img scr="">
-            <h1>Best Hook Forward</h1>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="index.php">Home</a>
-                    </li>
-                    <li>
-                        <a href="sign_in.php">Sign In</a>
-                    </li>
-                    <li>
-                        <a href="cart.php">Cart</a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+        <?php require("header.php");?>
         
         <main>
             <a href="products.php?type=Toy">
@@ -90,30 +71,7 @@ if (!isset($_SESSION["cart"])) {
             
         </main>
         
-        <footer>
-            <div id="footer_nav">
-                <nav>
-                    <ul>
-                        <li>
-                            <a href="index.php">Home</a>
-                        </li>
-                        <li>
-                            <a href="sign_in.php">Sign In</a>
-                        </li>
-                        <li>
-                            <a href="cart.php">Cart</a>
-                        </li>
-                        
-                    </ul>
-                </nav>
-                <nav id="social">
-                    <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Pinterest</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </footer>
+        <?php require("footer.php");?>
         
     </body>
     

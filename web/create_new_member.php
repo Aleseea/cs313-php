@@ -12,6 +12,17 @@ $password = htmlspecialchars($_POST['password']);
 // var_dump($date);
 // var_dump($content);
 
+if (!isset($username) || $username == ""
+	|| !isset($password) || $password == "")
+{
+	header("Location: signUp.php");
+	die(); // we always include a die after redirects.
+}
+
+$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+
+
 $query = "INSERT INTO member(first_name, last_name, username, password) VALUES (:first_name, :last_name, :username, :password)";
 
 $stmt = $db->prepare($query);
@@ -19,7 +30,7 @@ $stmt = $db->prepare($query);
 $stmt->bindValue(":first_name", $firstname, PDO::PARAM_STR);
 $stmt->bindValue(":last_name", $lastname, PDO::PARAM_STR);
 $stmt->bindValue(":username", $username, PDO::PARAM_STR);
-$stmt->bindValue(":password", $password, PDO::PARAM_STR);
+$stmt->bindValue(":password", $hashedPassword, PDO::PARAM_STR);
 
 try {
 	// SB: This was silently failing on me a lot, so to help debug it, I put it inside a try catch block. It was generating an exception, and it helped me track down my problem.
@@ -32,8 +43,8 @@ try {
 	die();
 }
 
-$index = "index.php?first_name=$firstname";
-header("Location: $index");
+$nextPage = "sign_in.php";
+header("Location: $nextPage");
 
 die();
 ?>
