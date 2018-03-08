@@ -44,8 +44,8 @@ app.use(function(err, req, res, next) {
 });
 
 
-var server = http.createServer(sendSMSHandler);
+var theServer = process.env.PORT || 8080;
 
-app.listen(PORT, () => console.log('Listening!'));
+app.listen(theServer, () => console.log('Listening!'));
 
 module.exports = app;
