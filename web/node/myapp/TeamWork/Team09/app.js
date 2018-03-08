@@ -44,7 +44,8 @@ app.use(function(err, req, res, next) {
 });
 
 
+var port = process.env.PORT || 3000;
 
-app.listen(8080, () => console.log('Listening on port 8080!'));
+app.listen(port, () => console.log('Listening on port 8080!'));
 
 module.exports = app;
