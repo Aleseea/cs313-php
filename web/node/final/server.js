@@ -1,26 +1,26 @@
-var express = require('express');
+/*var express = require('express');
 var app = express();
 
 
 var router = express.Router();
 console.log("I'm at least in here . . .");
-var pg = require('pg');
+var pg = require('pg');*/
 /*It says that the password authentication fails for user orange.
 If I change the user to postgres then it authenticates but gives me the error 'relation "pattern" does not exist at Connection.parseE' basically it seems to be talking about the table name.*/
-var conString = "postgres://postgres:19Faye96@localhost:5432/postgres";
+/*var conString = "postgres://postgres:19Faye96@localhost:5432/postgres";
   
  app.set('port', (process.env.PORT || 5000))
     .use(express.json())
     .use(express.urlencoded({extended:true}))
     .get('/allPatterns', handleAllPatterns)
-    .get('/onePattern:id', handleSinglePattern)
+    .get('/onePattern:id', handleSinglePattern)*/
 /*For database connection test purposes only*/
-    .get('/test', testing123)
+    /*.get('/test', testing123)
     .post('/newPattern', newPattern)
     .use('/updatePattern:id', updatePattern)
     .listen(app.get('port'), function(){
         console.log('Listening on port: ' + app.get('port'));
-});
+});*/
 
 
 function newPattern(req, res){
@@ -65,6 +65,8 @@ function handleAllPatterns(req, res){
     var resultList = [{id:1, pattern_name:'Itty Bitty Giraffe', author_name:'Aleseea Pennington', img_url:'ittyBittyGiraffe.jpg', instructions:'REPLACE THIS LATER'}];
     res.json(resultList);
 }
+module.exports = {show: resultList};
+
 
 function handleSinglePattern(req, res){
     console.log('Pulling up one pattern....');
